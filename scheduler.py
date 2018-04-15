@@ -1,6 +1,3 @@
-'''
-constrain a sym var to that it at most has 2 bits set
-'''
 from z3 import *
 
 
