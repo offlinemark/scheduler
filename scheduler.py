@@ -39,9 +39,6 @@ class Host(object):
 
 
 class Scheduler(object):
-    # TODO config:  max num per total (only assigned twice per schedule)
-    # TODO express how many times you can do it, out of your total availablity (i can do it every time this month, but i only want do to 1)
-
     def __init__(self, num_events, num_hosts_per_event=3, max_hosts=32):
         if num_events <= 0:
             raise SchedulerError('number of events must be > 0')
@@ -151,9 +148,3 @@ class Scheduler(object):
         self._constrain_num_hosts_per_event()
         self._constrain_host_availability()
         self._constrain_unassigned_bits()
-
-        # for event in self._events:
-        # TODO constraint for 2 times max
-        # for bitidx in range(max_hosts):
-        #     verticalbv = self._vertical_concat_at(bitidx)
-        #     self._solver.add(verticalbv )
